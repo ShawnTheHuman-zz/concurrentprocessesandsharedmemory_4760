@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include <sys/shm.h>
 #include <sys/wait.h>
 #include <sys/ipc.h>
@@ -26,14 +27,17 @@ void usage();
 
 
 int shmid;
+int* shm;
 int nLicenses;
 
 key_t key = 904885;
 
 
+char* argv[];
+
 int main(int argc, char* argv[]){
 	
-	signal(SIGINT, singal_handler);
+	signal(SIGINT, signal_handler);
 
 	int license_count;
 
@@ -58,12 +62,12 @@ int main(int argc, char* argv[]){
 		exit(1);
 	}
 
-	if(( shmid = shmget(key, sizeof(int)*2,IPC_CREAT | 0777 )) < 0)}
+	if(( shmid = shmget(SHMKEY, sizeof(int)*2, 0777 | IPC_CREAT )) == -1 ) {
 		perror("ERROR: runsim: error getting memory");
 		exit(1);
 	}
 
-	if(( shm = (int nLicenses *)shmat(shmid, NULL, 0)) == (int nLicenses *) - 1) {
+	if( (shm = shmat(shmid, NULL, 0)) == ((int*)(-1)) ) {
 		perror("ERROR: runsim: unable to attach memory");
 		exit(1);
 
@@ -82,7 +86,7 @@ void usage(){
 	printf("usage");
 }
 
-char docommand( char* cline ){
+void docommand( char* cline ){
 	
 	getlicense();
 
@@ -93,7 +97,7 @@ char docommand( char* cline ){
 	free(argv);
 }
 
-char make_argv( char* str ){
+char** make_argv( char* str ){
 	
 	char* substr;
 	char** _argv = malloc(10 * sizeof(char));
@@ -110,4 +114,9 @@ char make_argv( char* str ){
 	_argv[i] = NULL;
 	
 	return _argv;
+}
+
+void signal_handler(int s){
+	
+
 }

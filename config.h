@@ -18,7 +18,7 @@ void removelicenses(int n);
 void logmsg(char* msg); 
 
 extern int shmid; // global for shared memory id
-
+extern int* shm;
 extern int nLicenses; // global license object to use shared memory
 
 

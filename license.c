@@ -4,7 +4,6 @@
  */
 
 #include "config.h"
-#include "license.h"
 
 int getlicense() {
 
