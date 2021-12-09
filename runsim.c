@@ -13,6 +13,9 @@
 
 void signal_handler();
 
+int shmid;
+struct nLicenses *shm;
+
 int main ( int argc, char *argv[] ) {
 
 	signal(SIGINT, signal_handler);
