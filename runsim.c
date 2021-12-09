@@ -11,7 +11,7 @@
 #include <sys/shm.h>
 #include "config.h"
 
-void signal_handler();
+
 
 int shmid;
 struct nLicenses *shm;
