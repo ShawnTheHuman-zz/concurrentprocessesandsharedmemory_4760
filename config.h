@@ -18,7 +18,7 @@
 #include <sys/wait.h>
 
 extern int shmid; // global for shared memory id
-//extern struct nLicenses *shm; // global license object to use shared memory
+extern struct nLicenses *shm; // global license object to use shared memory
 
 struct nLicenses{
     
