@@ -17,6 +17,8 @@
 #include <sys/ipc.h>
 #include <sys/wait.h>
 
+extern int shmid; // global for shared memory id
+extern struct nLicenses *shm; // global license object to use shared memory
 
 struct nLicenses{
     
@@ -40,9 +42,7 @@ void removelicenses(int n);
 void logmsg(char* msg, char*, char*); 
 void print_time(FILE*);
 
-extern int shmid; // global for shared memory id
 
-extern struct nLicenses *shm; // global license object to use shared memory
 
 
 #endif
