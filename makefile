@@ -24,7 +24,6 @@ all: $(EXEC2)
 $(EXEC2): $(OBJ2)
         $(CC) $(CFLAGS) -o $(EXEC2) $(OBJ2)
 
-
 .PHONY: clean
 
 clean:
