@@ -2,8 +2,8 @@
 # makefile
 
 
-CC      = g++
-CFLAGS  = -std=c++11 -g -Wall -Wshadow
+CC      = gcc
+CFLAGS  = -g -Wall -Wshadow
 
 
 EXEC1 := runsim
