@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS= -g -Wall -Wshadow
-DEPS= license.c config.h runsim.c testsim.c
+DEPS= license.c runsim.c testsim.c
 OBJ= runsim.o testsim.o license.o
 EXEC= runsim testsim
 
