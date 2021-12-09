@@ -29,7 +29,7 @@ struct nLicenses{
         choosing[100],
         turn[100],
         block;
-}
+};
 
 /* function declarations */
 int getlicense(void);
@@ -41,8 +41,8 @@ void logmsg(char* msg, char*, char*);
 void print_time(FILE*);
 
 extern int shmid; // global for shared memory id
-extern int* shm;
-extern struct nLicenses; // global license object to use shared memory
+
+extern struct nLicenses *shm; // global license object to use shared memory
 
 
 #endif
