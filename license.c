@@ -18,7 +18,7 @@ int getlicense() {
 
 int returnlicense(){
     shm->children--;
-    returnshm->children;
+    return shm->children;
 
 }
 
@@ -51,8 +51,6 @@ void logmsg ( char* pid, char* c, char* r ) {
     }
 
     
-
-}
 
     print_time(out);
 
