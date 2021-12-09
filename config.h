@@ -3,23 +3,46 @@
 
 #define MAX_CANON 20	
 #define MAX_TIME 100
+#define BUFFER 100
 
 #define SHMKEY 102938
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <signal.h>
+#include <time.h>
+#include <sys/shm.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/wait.h>
 
 
+struct nLicenses{
+    
+    /* license object members */
+    int available,
+        children,
+        proc_running,
+
+        /* For the Bakery algorithm */
+        choosing[100],
+        turn[100],
+        block;
+}
+
+/* function declarations */
 int getlicense(void);
 int returnlicense(void);
 int initlicense(void);
 void addtolicenses(int n);
 void removelicenses(int n);
-void logmsg(char* msg); 
+void logmsg(char* msg, char*, char*); 
+void print_time(FILE*);
 
 extern int shmid; // global for shared memory id
 extern int* shm;
-extern int nLicenses; // global license object to use shared memory
+extern struct nLicenses; // global license object to use shared memory
 
 
 #endif
