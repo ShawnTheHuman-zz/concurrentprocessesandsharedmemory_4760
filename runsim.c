@@ -11,6 +11,8 @@
 #include <sys/shm.h>
 #include "config.h"
 
+void signal_handler();
+
 int main ( int argc, char *argv[] ) {
 
 	signal(SIGINT, signal_handler);
