@@ -5,7 +5,6 @@
 
 #include "config.h"
 
-extern struct nLicenses* shm;
 
 int getlicense() {
     if((shm->proc_running >= shm->available) || shm->available ==1){
