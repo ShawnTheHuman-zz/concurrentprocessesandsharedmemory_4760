@@ -34,13 +34,13 @@ struct nLicenses{
 };
 
 /* function declarations */
-int getlicense(void);
-int returnlicense(void);
-int initlicense(void);
-void addtolicenses(int n);
-void removelicenses(int n);
-void logmsg(char* msg, char*, char*); 
-void print_time(FILE*);
+extern int getlicense(void);
+extern int returnlicense(void);
+extern int initlicense(void);
+extern void addtolicenses(int n);
+extern void removelicenses(int n);
+extern void logmsg(char* msg, char*, char*); 
+extern void print_time(FILE*);
 
 
 
