@@ -34,7 +34,7 @@ struct nLicenses{
 };
 
 /* function declarations */
-void signal_handler();
+void signal_handler(int);
 extern int getlicense(void);
 extern int returnlicense(void);
 extern int initlicense(void);
