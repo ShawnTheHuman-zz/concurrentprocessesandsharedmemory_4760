@@ -17,6 +17,8 @@
 
 #include "config.h"
 
+extern key_t SHMKEY = 102938; // key for shared memory
+
 void docommand( char* prog, char* name, char* arr1, char* arr2, char* arr3);
 char** make_argv(char* str);
 void terminate_processes();
