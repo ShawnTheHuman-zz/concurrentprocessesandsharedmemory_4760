@@ -9,6 +9,8 @@
 #include <unistd.h>
 #include "config.h"
 
+extern key_t SHMKEY = 102938; // key for shared memory
+
 
 int shmid;
 struct nLicenses *shm;
