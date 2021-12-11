@@ -1,3 +1,10 @@
+/*
+	Shawn Brown
+	Project 2 - 4760
+	config.h
+ */
+
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
@@ -5,7 +12,7 @@
 #define MAX_TIME 100
 #define BUFFER 100
 
-#define SHMKEY 102938
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,6 +23,8 @@
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/wait.h>
+
+extern key_t SHMKEY 102938 // key for shared memory
 
 extern int shmid; // global for shared memory id
 extern struct nLicenses *shm; // global license object to use shared memory
