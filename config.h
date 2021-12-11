@@ -33,6 +33,8 @@ struct nLicenses{
         block;
 };
 
+extern struct nLicenses *shm;
+
 /* function declarations */
 void signal_handler(int);
 extern int getlicense(void);

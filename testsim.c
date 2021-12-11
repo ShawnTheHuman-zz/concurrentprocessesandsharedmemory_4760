@@ -7,6 +7,10 @@
 #include <unistd.h>
 #include "config.h"
 
+
+int shmid;
+struct nLicenses *shm;
+
 int main ( int argc, char *argv[] ) {
 
 	
