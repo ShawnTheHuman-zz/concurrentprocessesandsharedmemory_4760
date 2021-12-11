@@ -217,7 +217,7 @@ procs_remaining(pid_t procs[], int size)
 {
 	int i, status;
 	
-	for(i = 0; i < c; i++;){
+	for(i = 0; i < c; i++){
 		pid_t wait;
 		wait = waitpid(procs[i], &status, WNOHANG);
 		
@@ -225,7 +225,7 @@ procs_remaining(pid_t procs[], int size)
 			procs[i] = 0;
 		}
 	}
-	for(i = 0; i < c; i++;){
+	for(i = 0; i < c; i++){
 		if(procs[i] == 0){
 			continue;
 		}
