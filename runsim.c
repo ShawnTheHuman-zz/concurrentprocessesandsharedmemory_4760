@@ -111,7 +111,7 @@ int main(int argc, char* argv[]){
 			if(index < child_count){
 				
 				for(i; lines[index][i] != ' '; i++){
-					a2[j] = lines[index][i];
+					prog_name[j] = lines[index][i];
 					j++;
 				}
 
