@@ -83,7 +83,7 @@ int main(int argc, char* argv[]){
 	char a2[50], a3[50];
 
 	while(fgets(buf, MAX_CANON, stdin) != NULL){
-		strcpy[lines[child_count], buf];
+		strcpy(lines[child_count], buf);
 		child_count++;
 	}
 
@@ -144,7 +144,7 @@ int main(int argc, char* argv[]){
 			}
 			if(pid == -1){
 				perror("RUNSIM: fork error");
-				terminate_procs();
+				terminate_processes();
 				exit(1);
 
 			}
@@ -165,7 +165,7 @@ int main(int argc, char* argv[]){
 			
 		}
 		shm->proc_running--;
-		int verify = children_cleared(child, child_count);
+		int verify = procs_remaining(child, child_count);
 		if(verify == 1){
 			break;
 		}
@@ -211,6 +211,27 @@ char** make_argv( char* str ){
 	_argv[i] = NULL;
 	
 	return _argv;
+}
+
+procs_remaining(pid_t procs[], int size)
+{
+	int i, status;
+	
+	for(i = 0; i < c; i++){
+		pid_t wait;
+		wait = waitpid(procs[i], &status, WNOHANG);
+		
+		if(wait != 0){
+			procs[i] = 0;
+		}
+	}
+	for(i = 0; i < c; i++){
+		if(procs[i] == 0){
+			continue;
+		}
+		else{ return 0;}
+	}
+	return 1;
 }
 
 void signal_handler(int s){
