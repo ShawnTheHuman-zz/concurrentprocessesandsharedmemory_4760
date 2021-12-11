@@ -77,7 +77,7 @@ int main(int argc, char* argv[]){
 
 	int i,j = 0;
 
-	char prog_name = "./";
+	char prog_name[50] = "./";
 	char a2[50], a3[50];
 
 	while(fgets(buf, MAX_CANON, stdin) != NULL){
