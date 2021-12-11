@@ -149,6 +149,7 @@ int main(int argc, char* argv[]){
 			else if(pid == 0){
 				char ch[50];
 				sprintf(ch, "%d", index);
+				printf(" RUNNING TESTSIM\n");
 				execl(prog_name, "testsim", a2, a3, ch,(char *)NULL);
 				//docommand(prog_name, "testsim", a2, a3, ch);
 			}
