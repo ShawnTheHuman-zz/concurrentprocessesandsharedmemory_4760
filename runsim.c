@@ -211,7 +211,7 @@ char** make_argv( char* str ){
 	return _argv;
 }
 
-procs_remaining(pid_t procs[], int size)
+int procs_remaining(pid_t procs[], int size)
 {
 	int i, status;
 	

@@ -19,6 +19,8 @@ int shmid;
 struct nLicenses *shm;
 
 int main ( int argc, char *argv[] ) {
+	
+	printf("TEST SIM\n");
 
 	signal(SIGINT, signal_handler);
 	int repeat_factor, sleep_time, i;
