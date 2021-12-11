@@ -83,7 +83,7 @@ int main ( int argc, char *argv[] ) {
 }
 
 void signal_handler(){
-	pid id = getpid();
+	pid_t id = getpid();
 	shmdt(shm);
 	killpg(id, SIGINT);
 	exit(1);
