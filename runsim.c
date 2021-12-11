@@ -17,6 +17,8 @@
 
 #include "config.h"
 
+
+
 void docommand( char* prog, char* name, char* arr1, char* arr2, char* arr3);
 char** make_argv(char* str);
 void terminate_processes();
@@ -35,6 +37,8 @@ int main(int argc, char* argv[]){
 
 	int license_count;
 	int child_count = 0;
+	
+	key_t SHMKEY = 102938; // key for shared memory
 
 	if( argc != 2 ) {
 		

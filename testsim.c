@@ -10,6 +10,8 @@
 #include "config.h"
 
 
+
+
 int shmid;
 struct nLicenses *shm;
 
@@ -21,6 +23,8 @@ struct nLicenses *shm;
 int main ( int argc, char *argv[] ) {
 	
 	printf("TEST SIM\n");
+	key_t SHMKEY = 102938; // key for shared memory
+	
 
 	signal(SIGINT, signal_handler);
 	int repeat_factor, sleep_time, i;
