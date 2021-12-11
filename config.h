@@ -24,7 +24,7 @@
 #include <sys/ipc.h>
 #include <sys/wait.h>
 
-key_t SHMKEY = 102938; // key for shared memory
+extern key_t SHMKEY = 102938; // key for shared memory
 
 extern int shmid; // global for shared memory id
 extern struct nLicenses *shm; // global license object to use shared memory
