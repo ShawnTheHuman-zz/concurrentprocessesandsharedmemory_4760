@@ -1,5 +1,7 @@
 /*
- * testsim.c
+	Shawn Brown
+	project 2 - 4760
+	testsim.c
  */
 
 #include <stdio.h>
@@ -21,11 +23,6 @@ int main ( int argc, char *argv[] ) {
 	signal(SIGINT, signal_handler);
 	int repeat_factor, sleep_time, i;
 
-// 	if ( argc != 3 ) {
-// 	perror("ERROR: testsim:  invalid number of arguments");
-// 		return 1; 
-// 	}
-	
 	repeat_factor = atoi(argv[2]);
 	sleep_time = atoi(argv[1]);
 	
