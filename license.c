@@ -51,7 +51,7 @@ void logmsg ( char* pid, char* c, char* r ) {
         exit(1);
     }
 
-    
+    printf("LOG MESSAGE\n");    
 
     print_time(out);
 

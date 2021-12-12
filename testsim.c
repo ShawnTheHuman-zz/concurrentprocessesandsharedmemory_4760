@@ -17,8 +17,11 @@ struct nLicenses *shm;
 
 
 
+<<<<<<< HEAD
 int shmid;
 struct nLicenses *shm;
+=======
+>>>>>>> e8b3701152bcfa40e6bbc6f704c2a415e9b4de5c
 
 int main ( int argc, char *argv[] ) {
 	
@@ -34,7 +37,7 @@ int main ( int argc, char *argv[] ) {
 	
 
 
-	if((shmid = shmget(SHMKEY, sizeof(struct nLicenses) * 2, 0666)) < 0) {
+	if((shmid = shmget(SHMKEY, sizeof(struct nLicenses) * 2, IPC_CREAT | 0666)) < 0) {
 		perror("testsim: Error: shmget ");
 		exit(1);
 	}
@@ -45,7 +48,7 @@ int main ( int argc, char *argv[] ) {
 	}
 
 
-	int c, j, k, n = shm->children;
+	int c, j, n = shm->children;
 	int max = 0;
 	shm->choosing[(n-1)] = 1;
 
