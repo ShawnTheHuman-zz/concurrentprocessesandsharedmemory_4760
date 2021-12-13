@@ -55,7 +55,7 @@ void logmsg ( char* pid, char* c, char* r ) {
 
     print_time(out);
 
-    fprintf(out, "%s %s of %s\n", pid, c, r);
+    fprintf(out, "PID: %s: %s of %s\n", pid, c, r);
 
     fclose(out);
 

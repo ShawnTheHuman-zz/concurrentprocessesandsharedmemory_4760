@@ -1,4 +1,5 @@
 # Shawn brown
+# project 2 - 4760
 # makefile
 
 
@@ -28,4 +29,4 @@ $(EXEC2): $(OBJ2)
 .PHONY: clean
 
 clean:
-	rm -f $(EXEC1) $(EXEC2) *.o logfile
+	rm -f $(EXEC1) $(EXEC2) *.o logfile.data
