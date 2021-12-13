@@ -15,11 +15,6 @@
 int shmid;
 struct nLicenses *shm;
 
-
-
-int shmid;
-struct nLicenses *shm;
-
 int main ( int argc, char *argv[] ) {
 	
 	//printf("TEST SIM\n");
@@ -32,11 +27,12 @@ int main ( int argc, char *argv[] ) {
 		sleep_time, 
 		i;
 
+	
 	sleep_time = atoi(argv[1]);
 	repeat_factor = atoi(argv[2]);
 	i = atoi(argv[3]);
 	
-	printf("sleep time %d\n", sleep_time);
+	//printf("sleep time %d\n", sleep_time);
 
 	if((shmid = shmget(SHMKEY, sizeof(struct nLicenses) * 2, 0666 | IPC_CREAT)) < 0) {
 		perror("testsim: Error: shmget ");
@@ -76,7 +72,7 @@ int main ( int argc, char *argv[] ) {
 		sprintf(pid, "%d", id);
 		sprintf(num, "%d", (c + 1));
 
-		printf("Printing msg to file: %s %s of %s\n", pid, num, argv[2]);
+		printf("Printing to file: PID: %s LOOP: %s of %s\n", pid, num, argv[2]);
 
 		/* prints log to file */ 
 		logmsg(pid, num, argv[2]);
