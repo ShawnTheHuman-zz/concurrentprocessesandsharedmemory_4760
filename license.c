@@ -67,6 +67,6 @@ void print_time(FILE* out){
 
     struct tm *tp = localtime(&tm);
 
-    fprintf(out, "%.2d:%.2d:%.2d ", tp->tm_hour, tp->tm_min, tp->tm_sec);
+    fprintf(out, "Time: %.2d:%.2d:%.2d ", tp->tm_hour, tp->tm_min, tp->tm_sec);
 
 }
