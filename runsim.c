@@ -76,6 +76,8 @@ int main(int argc, char* argv[]){
 	shm->proc_running++;
 
 	initlicense();
+
+
 	char buf[MAX_CANON];
 	char lines[BUFFER][BUFFER];
 
@@ -115,7 +117,14 @@ int main(int argc, char* argv[]){
 			if(index < child_count){
 				
 				for(i; lines[index][i] != ' '; i++){
-					prog_name[j] = lines[index][i];
+					prog_name[i + 2] = lines[index][i];
+					j++;
+				}
+
+				i++;
+
+				for( i; lines[index][i] != ' '; i++ ){
+					a2[j] = lines[index][i];
 					j++;
 				}
 
@@ -188,7 +197,7 @@ void usage(){
 	printf("./runsim n < testing.data -- where n is an integer number of licenses");
 }
 
-void docommand( char* prog, char* name, char* arr1, char* arr2, char* arr3){
+void docommand( char* prog, char* name, char* arr1, char* arr2, char* c){
 	execl(prog, "testsim", arr1, arr2, arr3,(char *)NULL);
 }
 
