@@ -124,7 +124,7 @@ int main(int argc, char* argv[]){
 
 				for( i; lines[index][i] != ' '; i++ ){
 					sleep_arr[j] = lines[index][i];
-					printf("sleep factor %d\n", sleep_arr[j]);
+					//printf("sleep factor %d\n", sleep_arr[j]);
 					j++;
 				}
 
@@ -134,7 +134,7 @@ int main(int argc, char* argv[]){
 				for( i; i < strlen(lines[index]) - 1; i++){
 
 					repeat_arr[j] = lines[index][i];
-					printf("repeat factor %d\n", repeat_arr[j]);
+					//printf("repeat factor %d\n", repeat_arr[j]);
 					j++;
 				}
 
@@ -163,10 +163,10 @@ int main(int argc, char* argv[]){
 			else if(pid == 0){
 				char ch[50];
 				sprintf(ch, "%d", index);
-				printf(" RUNNING TESTSIM\n");
+				//printf(" RUNNING TESTSIM\n");
 
-				execl(prog_name, "testsim", sleep_arr, repeat_arr, ch,(char *)NULL);
-				//docommand(prog_name, "testsim", sleep_arr, repeat_arr, ch);
+				//execl(prog_name, "testsim", sleep_arr, repeat_arr, ch,(char *)NULL);
+				docommand(prog_name, "testsim", sleep_arr, repeat_arr, ch);
 			}
 
 			term_time--;
