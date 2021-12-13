@@ -17,11 +17,8 @@ struct nLicenses *shm;
 
 
 
-<<<<<<< HEAD
 int shmid;
 struct nLicenses *shm;
-=======
->>>>>>> e8b3701152bcfa40e6bbc6f704c2a415e9b4de5c
 
 int main ( int argc, char *argv[] ) {
 	
