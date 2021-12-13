@@ -79,7 +79,7 @@ int main ( int argc, char *argv[] ) {
 		/* prints log to file */ 
 		logmsg(pid, num, argv[2]);
 
-		sleep(1);
+		sleep(sleep_time);
 
 		shm->turn[(n - 1)] = 0;
 
