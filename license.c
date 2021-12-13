@@ -51,7 +51,7 @@ void logmsg ( char* pid, char* c, char* r ) {
         exit(1);
     }
 
-    
+
 
     print_time(out);
 
