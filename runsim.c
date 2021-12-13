@@ -116,7 +116,7 @@ int main(int argc, char* argv[]){
 			}
 			if(index < child_count){
 				
-				for(i; lines[index][i] != ' '; i++){
+				for( i; lines[index][i] != ' '; i++){
 					prog_name[i + 2] = lines[index][i];
 					j++;
 				}
@@ -132,9 +132,10 @@ int main(int argc, char* argv[]){
 				j = 0;
 				i++;
 
-				for(i; i < strlen(lines[index]) - 1; i++){
+				for( i; i < strlen(lines[index]) - 1; i++){
 
 					repeat_arr[j] = lines[index][i];
+					printf("repeat factor %d\n", repeat_arr[j]);
 					j++;
 				}
 
@@ -164,6 +165,7 @@ int main(int argc, char* argv[]){
 				char ch[50];
 				sprintf(ch, "%d", index);
 				printf(" RUNNING TESTSIM\n");
+
 				execl(prog_name, "testsim", sleep_arr, repeat_arr, ch,(char *)NULL);
 				//docommand(prog_name, "testsim", sleep_arr, repeat_arr, ch);
 			}
