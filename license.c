@@ -1,6 +1,7 @@
 /*
- * license.c
- *
+	Shawn Brown
+	project 2 - 4760
+	license.c
  */
 
 #include "config.h"
@@ -50,12 +51,6 @@ void logmsg ( char* pid, char* c, char* r ) {
         perror("ERROR: unable to open log file.");
         exit(1);
     }
-
-<<<<<<< HEAD
-    printf("LOG MESSAGE\n");    
-=======
-
->>>>>>> 72f5c5bef011c299db23c6182b4305b574ee90c5
 
     print_time(out);
 
