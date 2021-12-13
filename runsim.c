@@ -18,7 +18,7 @@
 #include "config.h"
 
 
-
+/* forward declarations  */
 void docommand( char* prog, char* name, char* arr1, char* arr2, char* arr3);
 char** make_argv(char* str);
 void terminate_processes();
@@ -33,6 +33,7 @@ struct nLicenses *shm;
 
 int main(int argc, char* argv[]){
 	
+	/* initiate signal handler */ 
 	signal(SIGINT, signal_handler);
 
 	int license_count;
@@ -46,7 +47,9 @@ int main(int argc, char* argv[]){
 		usage();
 		exit(1);
 
-	}	
+	}
+
+	/* checks that n is a digit, then sets license count to the number */	
 	if(strspn(argv[1], "0123456789") == strlen(argv[1])){
 		license_count = atoi(argv[1]);
 		if( license_count <= 0 ){
@@ -60,12 +63,12 @@ int main(int argc, char* argv[]){
 		usage();
 		exit(1);
 	}
-
+	/* get shared memory id */
 	if(( shmid = shmget(SHMKEY, sizeof(struct nLicenses)*2, 0666 | IPC_CREAT )) < 0 ) {
 		perror("ERROR: runsim: error getting memory");
 		exit(1);
 	}
-
+	/* attach data to shared memory */
 	if( (shm = (struct nLicenses *)shmat(shmid, NULL, 0)) == ((struct nLicenses *)(-1)) ) {
 		perror("ERROR: runsim: unable to attach memory");
 		exit(1);
@@ -75,17 +78,24 @@ int main(int argc, char* argv[]){
 	shm->available = license_count;
 	shm->proc_running++;
 
+	/* initiate license  */
 	initlicense();
 
-
+	/* data buffer array */
 	char buf[MAX_CANON];
+
+	/* 2d array for storing data from the file */
 	char lines[BUFFER][BUFFER];
 
 	int i,j = 0;
 
+	/* arrays to store the arguments read in from the file */
 	char prog_name[50] = "./";
-	char sleep_arr[50], repeat_arr[50];
+	char sleep_arr[50];
+	char repeat_arr[50];
 
+
+	/* reads data from command line */
 	while(fgets(buf, MAX_CANON, stdin) != NULL){
 		strcpy(lines[child_count], buf);
 		child_count++;
@@ -115,7 +125,12 @@ int main(int argc, char* argv[]){
 				}
 			}
 			if(index < child_count){
-				
+				/*
+					for loops that read in the arguments the do_command function
+					it reads until the first space, storing the contents in the program
+					name array, then the same for the sleep and repeat factors in respective arrays. 
+				 
+				*/
 				for( i; lines[index][i] != ' '; i++){
 					prog_name[i + 2] = lines[index][i];
 				}
@@ -198,16 +213,16 @@ int main(int argc, char* argv[]){
 void usage(){
 	printf("./runsim n < testing.data -- where n is an integer number of licenses");
 }
-
+/* simple function that just takes arguments to exec */
 void docommand( char* prog, char* name, char* arr1, char* arr2, char* c){
 	execl(prog, "testsim", arr1, arr2, c,(char *)NULL);
 }
-
+/* removes shared memory */
 void terminate_processes(){
 	shmctl(shmid, IPC_RMID, NULL);
 	shmdt(shm);
 }
-
+/* unuti tokenizes input to make argument array */
 char** make_argv( char* str ){
 	
 	char* substr;
@@ -227,6 +242,7 @@ char** make_argv( char* str ){
 	return _argv;
 }
 
+/* checks if any child processes are still running */
 int procs_remaining(pid_t procs[], int size)
 {
 	int i, status;
