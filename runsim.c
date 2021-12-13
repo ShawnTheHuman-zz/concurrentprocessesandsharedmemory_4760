@@ -198,7 +198,7 @@ void usage(){
 }
 
 void docommand( char* prog, char* name, char* arr1, char* arr2, char* c){
-	execl(prog, "testsim", arr1, arr2, arr3,(char *)NULL);
+	execl(prog, "testsim", arr1, arr2, c,(char *)NULL);
 }
 
 void terminate_processes(){
