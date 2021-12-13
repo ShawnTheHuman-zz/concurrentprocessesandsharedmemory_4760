@@ -21,23 +21,27 @@ struct nLicenses *shm;
 int main ( int argc, char *argv[] ) {
 	
 	printf("TEST SIM\n");
-	key_t SHMKEY = 102938; // key for shared memory
+	key_t SHMKEY = ftok("./", 'R'); // key for shared memory
 	
 
 	signal(SIGINT, signal_handler);
-	int repeat_factor, sleep_time, i;
+	
+	int repeat_factor, 
+		sleep_time, 
+		i;
 
 	repeat_factor = atoi(argv[2]);
 	sleep_time = atoi(argv[1]);
+	i = atoi(argv[3]);
 	
 
 
-	if((shmid = shmget(SHMKEY, sizeof(struct nLicenses) * 2, IPC_CREAT | 0666)) < 0) {
+	if((shmid = shmget(SHMKEY, sizeof(struct nLicenses) * 2, 0666 | IPC_CREAT)) < 0) {
 		perror("testsim: Error: shmget ");
 		exit(1);
 	}
 
-	if((shm = (struct nLicenses *)shmat(shmid, NULL, 0)) == (struct nLicenses *) -1) {
+	if((shm = (struct nLicenses *)shmat(shmid, NULL, 0)) == (struct nLicenses *) - 1) {
 		perror("testsim: Error: shmat ");
 		exit(1);
 	}
