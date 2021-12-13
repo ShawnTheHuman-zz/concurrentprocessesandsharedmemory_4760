@@ -20,18 +20,18 @@ struct nLicenses *shm;
 
 int main ( int argc, char *argv[] ) {
 	
-	printf("TEST SIM\n");
+	//printf("TEST SIM\n");
 	key_t SHMKEY = ftok("./", 'R'); // key for shared memory
 	
 
 	signal(SIGINT, signal_handler);
-	
+
 	int repeat_factor, 
 		sleep_time, 
 		i;
 
-	repeat_factor = atoi(argv[2]);
 	sleep_time = atoi(argv[1]);
+	repeat_factor = atoi(argv[2]);
 	i = atoi(argv[3]);
 	
 
@@ -79,7 +79,7 @@ int main ( int argc, char *argv[] ) {
 		/* prints log to file */ 
 		logmsg(pid, num, argv[2]);
 
-		sleep(sleep_time);
+		sleep(1);
 
 		shm->turn[(n - 1)] = 0;
 
