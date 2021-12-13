@@ -47,7 +47,7 @@ int main(int argc, char* argv[]){
 		exit(1);
 
 	}	
-	if(isdigit(argv[1]) == strlen(argv[1])){
+	if(isdigit(argv[1])){
 		license_count = atoi(argv[1]);
 		if( license_count <= 0 ){
 			perror("ERROR: runsim: n must be a number greating than zero\n");
