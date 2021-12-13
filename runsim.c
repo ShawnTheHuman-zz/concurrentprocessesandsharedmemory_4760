@@ -118,7 +118,6 @@ int main(int argc, char* argv[]){
 				
 				for( i; lines[index][i] != ' '; i++){
 					prog_name[i + 2] = lines[index][i];
-					j++;
 				}
 
 				i++;
