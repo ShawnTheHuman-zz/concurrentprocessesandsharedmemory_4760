@@ -125,7 +125,7 @@ int main(int argc, char* argv[]){
 
 				for( i; lines[index][i] != ' '; i++ ){
 					sleep_arr[j] = lines[index][i];
-					printf("sleep factor %d", sleep_arr[j]);
+					printf("sleep factor %d\n", sleep_arr[j]);
 					j++;
 				}
 
