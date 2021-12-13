@@ -47,7 +47,7 @@ int main(int argc, char* argv[]){
 		exit(1);
 
 	}	
-	if(isdigit(argv[1])){
+	if(strspn(argv[1], "0123456789") == strlen(argv[1])){
 		license_count = atoi(argv[1]);
 		if( license_count <= 0 ){
 			perror("ERROR: runsim: n must be a number greating than zero\n");
@@ -84,7 +84,7 @@ int main(int argc, char* argv[]){
 	int i,j = 0;
 
 	char prog_name[50] = "./";
-	char a2[50], a3[50];
+	char sleep_arr[50], repeat_arr[50];
 
 	while(fgets(buf, MAX_CANON, stdin) != NULL){
 		strcpy(lines[child_count], buf);
@@ -124,7 +124,8 @@ int main(int argc, char* argv[]){
 				i++;
 
 				for( i; lines[index][i] != ' '; i++ ){
-					a2[j] = lines[index][i];
+					sleep_arr[j] = lines[index][i];
+					printf("sleep factor %d", sleep_arr[j]);
 					j++;
 				}
 
@@ -133,7 +134,7 @@ int main(int argc, char* argv[]){
 
 				for(i; i < strlen(lines[index]) - 1; i++){
 
-					a3[j] = lines[index][i];
+					repeat_arr[j] = lines[index][i];
 					j++;
 				}
 
@@ -163,8 +164,8 @@ int main(int argc, char* argv[]){
 				char ch[50];
 				sprintf(ch, "%d", index);
 				printf(" RUNNING TESTSIM\n");
-				execl(prog_name, "testsim", a2, a3, ch,(char *)NULL);
-				//docommand(prog_name, "testsim", a2, a3, ch);
+				execl(prog_name, "testsim", sleep_arr, repeat_arr, ch,(char *)NULL);
+				//docommand(prog_name, "testsim", sleep_arr, repeat_arr, ch);
 			}
 
 			term_time--;
