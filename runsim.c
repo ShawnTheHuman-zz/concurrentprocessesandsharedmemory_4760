@@ -38,7 +38,7 @@ int main(int argc, char* argv[]){
 	int license_count;
 	int child_count = 0;
 	
-	key_t SHMKEY = 102938; // key for shared memory
+	key_t SHMKEY = ftok("./", 'R'); // key for shared memory
 
 	if( argc != 2 ) {
 		
@@ -61,12 +61,12 @@ int main(int argc, char* argv[]){
 		exit(1);
 	}
 
-	if(( shmid = shmget(SHMKEY, sizeof(int)*2, IPC_CREAT | 0666 )) < 0 ) {
+	if(( shmid = shmget(SHMKEY, sizeof(struct nLicenses)*2, 0666 | IPC_CREAT )) < 0 ) {
 		perror("ERROR: runsim: error getting memory");
 		exit(1);
 	}
 
-	if( (shm = shmat(shmid, NULL, 0)) == ((int*)(-1)) ) {
+	if( (shm = (struct nLicenses *)shmat(shmid, NULL, 0)) == ((struct nLicenses *)(-1)) ) {
 		perror("ERROR: runsim: unable to attach memory");
 		exit(1);
 
