@@ -1,0 +1,16 @@
+
+Christopher Brown
+
+Project 2 - 4706
+
+Compiled with "make"
+
+How to Run:
+    ./runsim n < testing.data
+
+    n must be an integer greater than zero. 
+
+
+Issues: 
+    for some reason the 6 in the original "testing.data" file was being read as 60
+    and i'm not really sure as to why. otherwise it works well. 
