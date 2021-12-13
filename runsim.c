@@ -168,7 +168,7 @@ int main(int argc, char* argv[]){
 				//execl(prog_name, "testsim", sleep_arr, repeat_arr, ch,(char *)NULL);
 				docommand(prog_name, "testsim", sleep_arr, repeat_arr, ch);
 			}
-
+			printf("A R B I TR A R Y CHANGE");
 			term_time--;
 			sleep(1);
 		}
