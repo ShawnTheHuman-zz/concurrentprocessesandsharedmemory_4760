@@ -36,7 +36,7 @@ int main ( int argc, char *argv[] ) {
 	repeat_factor = atoi(argv[2]);
 	i = atoi(argv[3]);
 	
-
+	printf("sleep time %d\n", sleep_time);
 
 	if((shmid = shmget(SHMKEY, sizeof(struct nLicenses) * 2, 0666 | IPC_CREAT)) < 0) {
 		perror("testsim: Error: shmget ");
